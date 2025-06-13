@@ -1,4 +1,37 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+# toml doesn't support escaping single quotes in literal strings. 
+# Triple single quote creates multiline string which does support single quotes
+title = '''
+Phill's Blog
+'''
 theme = 'triple-hyde'
+enableRobotsTXT = true
+
+[params]
+  description = "Phillip Van Hoven"
+  mainSections = ["posts"]
+
+[Menus]
+  main = [
+      {Name = "Posts", URL = "/posts/index.html", Weight = 100},
+      {Name = "My Family Recipe Books", URL = "https://www.myfamilyrecipebooks.com", weight = 200},
+      {Name = "Github", URL = "https://github.com/pvanhoven/", Weight = 300},
+      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/phillip-van-hoven-%F0%9F%97%BB-662b2714/", Weight = 400}
+  ]
+    
+## Social Accounts
+[params.social]
+    github = "pvanhoven"
+    linkedin = "phillip-van-hoven-🗻-662b2714"
+    #instagram = "<username>"
+    #twitter = "<username>"
+    #facebook = "<username>"
+    #stackoverflow = "<username>"
+    #telegram = "<username>"
+    # orcid = "<xxxx-xxxx-xxxx-xxxx>"
+    #email = "your-email@example.com"
+    #mastodon = "<username>"
+    #threads = "@<username>"
+    # gravatar = "your-email@example.com"
+    # pgpkey = "<path-to-your-key-in-/static>"
