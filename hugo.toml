@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://www.phillvanhoven.com/'
 languageCode = 'en-us'
 # toml doesn't support escaping single quotes in literal strings. 
 # Triple single quote creates multiline string which does support single quotes
@@ -14,7 +14,7 @@ enableRobotsTXT = true
 
 [Menus]
   main = [
-      {Name = "Posts", URL = "/posts/index.html", Weight = 100},
+      {Name = "Posts", URL = "/posts", Weight = 100},
       {Name = "My Family Recipe Books", URL = "https://www.myfamilyrecipebooks.com", weight = 200},
       {Name = "Github", URL = "https://github.com/pvanhoven/", Weight = 300},
       {Name = "LinkedIn", URL = "https://www.linkedin.com/in/phillip-van-hoven-%F0%9F%97%BB-662b2714/", Weight = 400}
