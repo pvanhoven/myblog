@@ -19,6 +19,12 @@ Hugo is great option to host a blog/static content site. Combining Hugo and AWS 
 - [Request a public certificate to use with your App Runner custom domain](#request-a-public-certificate-to-use-with-your-app-runner-custom-domain)
 - [Update App Runner with custom domains](#update-app-runner-with-custom-domains)
 
+### Prerequisits
+
+- Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- Install [Hugo](https://gohugo.io/installation/) (or see the quick start guide linked below)
+- Install [Docker](https://docs.docker.com/get-started/)
+
 ## Create a Hugo Site
 
 Follow the Hugo [Quick Start](https://gohugo.io/getting-started/quick-start/) guide. A basic Hugo site is sufficient for this guide.
@@ -103,3 +109,51 @@ EXPOSE 80
 # Start nginx
 CMD ["nginx", "-g", "daemon off;"]
 ```
+
+## Deploying to AWS App Runner
+
+The new ECR registry contains the commands to build the docker image and deploy it. Look for the `View push commands` button in your repository. The commands will be as follows. Copy the provided commands and paste into your termianl.
+
+1. Retrieve an authentication token and authenticate your Docker client to your registry.
+1. Build your Docker image
+1. Tag your image
+1. Push this image
+
+## Request a domain in AWS
+
+AWS Route 53 provides domain registration services that integrate seamlessly with other AWS services. Here's how to register a new domain:
+
+1. Navigate to Route 53 in the AWS Management Console. Click on 'Registered domains' then 'Register Domains'
+1. Enter your desired domain name in the search box iwth your preferred top-level domain eg .com, .io, etc
+1. Select the domain, if available, and 'Proceed to checkout'
+1. Select duration and whether to auto-renew
+1. Fill in registrant contact details and choose whether to enable privacy protection (recommended to hide personal info from WHOIS)
+1. Finally 'Complete purchase'
+1. Domain registration typically takes 10-15 minutes to complete
+1. Route 53 automatically creates a hosted zone for your new domain
+
+## Request a public certificate to use with your App Runner custom domain
+
+AWS Certificate Manager (ACM) provides free SSL/TLS certificates for use with AWS services. Follow below steps to request a certificate for your domain:
+
+1. Navigate to AWS Certificate Manager in the AWS Management Console
+1. Ensure you're in the **us-east-1 (N. Virginia)** region (required for App Runner)
+1. Click "Request a certificate" and "Request a public certificate"
+1. Enter your domain name (e.g., `example.com`) and add a wildcard subdomain (e.g., `*.example.com`) to cover subdomains like `www.example.com`
+1. Choose **DNS validation** (recommended, especially if you registered the domain in Route 53)
+1. Review all details and click "Request"
+1. Click "Create record in Route 53" for automatic validation
+   - If using external DNS: Manually add the provided CNAME records to your DNS provider
+   - Validation typically takes 5-30 minutes
+1. The certificate status will change from "Pending validation" to "Issued" once issued and the certificate is ready to use with App Runner
+
+**Important Notes:**
+
+- The certificate must be in the **us-east-1** region for App Runner compatibility
+- DNS validation is faster and more reliable than email validation
+- Certificates are automatically renewed by AWS before expiration
+
+## Update App Runner with custom domains
+
+From your AWS App Runner instance, click on the 'Custom Domains' tab, then 'Link Domain' button.
+Chose 'Amazon Route 53' as the registrar and pick the domain you created above in the drop down. The sub domain can be left blank. Finally choose 'CNAME' for DNS Record Type. Repeat this process but use 'www' for the subdomain.
