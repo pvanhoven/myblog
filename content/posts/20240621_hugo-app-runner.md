@@ -1,7 +1,6 @@
 ---
 title: "Hugo App Runner"
 date: 2025-06-21T10:21:01-06:00
-draft: true
 ---
 
 # Hosting a Hugo Blog in AWS App Runner
