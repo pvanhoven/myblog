@@ -75,8 +75,8 @@ Resources:
         Runtime: cloudfront-js-1.0
       FunctionCode: |
         function handler(event) {
-          var request = event.request;
-          var uri = request.uri || '/';
+          const request = event.request;
+          const uri = request.uri;
 
           // If URI ends with '/', append index.html
           if (uri.endsWith('/')) {
@@ -86,8 +86,7 @@ Resources:
 
           // If URI has no file extension, treat as directory and serve /index.html
           if (uri.indexOf('.') === -1) {
-            if (!uri.startsWith('/')) uri = '/' + uri;
-            request.uri = uri.replace(/\/+$/, '') + '/index.html';
+            request.uri += '/index.html';
             return request;
           }
 

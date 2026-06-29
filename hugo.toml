@@ -1,4 +1,4 @@
-baseURL = 'http://www.phillvanhoven.com/'
+baseURL = 'http://phillvanhoven.com/'
 languageCode = 'en-us'
 # toml doesn't support escaping single quotes in literal strings. 
 # Triple single quote creates multiline string which does support single quotes
