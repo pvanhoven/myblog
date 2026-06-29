@@ -1,7 +1,7 @@
 ---
 title: "Bedrock for .NET"
 date: 2026-01-02T04:56:30-07:00
-draft: true
+draft: false
 ---
 
 AWS Bedrock is a managed service for programmatic access to generative AI and large language models. The service supports many [models]("https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html") from numerous providers. [SDKs]("https://docs.aws.amazon.com/bedrock/latest/userguide/sdk-general-information-section.html") exist for almost all major platforms.
