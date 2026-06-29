@@ -5,4 +5,7 @@ draft: true
 ---
 
 - Hugo getting started
-- Deploying Hugo w/ App Runner (why CloudFront is a bummer)
+- dotnet core in a lambda func for api
+- cloudfront + s3 for static site (basically the hugo blog)
+- dynamodb single table design
+   - 
