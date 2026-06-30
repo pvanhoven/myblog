@@ -12,6 +12,15 @@ enableRobotsTXT = true
   description = "Phillip Van Hoven"
   mainSections = ["posts"]
 
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    noClasses = true
+    style = "github"
+    lineNos = true
+    lineNumbersInTable = false
+
 [Menus]
   main = [
       {Name = "Posts", URL = "/posts", Weight = 100},
