@@ -16,3 +16,4 @@ draft: true
 - zsh in wsl getting started
    - good dev experience
    - plugins for tab completion grep, git
+- github actions setup, getting started
