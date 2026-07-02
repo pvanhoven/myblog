@@ -17,3 +17,6 @@ draft: true
    - good dev experience
    - plugins for tab completion grep, git
 - github actions setup, getting started
+- prettier
+- cshapier
+- ealint
