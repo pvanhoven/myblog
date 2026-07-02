@@ -5,4 +5,18 @@ draft: true
 ---
 
 - Hugo getting started
-- Deploying Hugo w/ App Runner (why CloudFront is a bummer)
+- dotnet core in a lambda func for api
+- cloudfront + s3 for static site (basically the hugo blog)
+- dynamodb single table design
+   - ddb tables != relational tables
+   - query patterns drive data model
+   - key format: OBJ_DESC#guid
+   - how to structure relationships using pk, sk starts_with
+   - when to use (high txn thruput, multi region replication is supported in aurora now)
+- zsh in wsl getting started
+   - good dev experience
+   - plugins for tab completion grep, git
+- github actions setup, getting started
+- prettier
+- cshapier
+- ealint
